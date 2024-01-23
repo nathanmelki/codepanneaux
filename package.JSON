@@ -4,7 +4,7 @@
   "description": "Description de votre projet",
   "main": "App.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node App.js"
   },
   "keywords": [],
   "author": "Votre Nom",
