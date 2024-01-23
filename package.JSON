@@ -2,7 +2,7 @@
   "name": "nom-de-votre-projet",
   "version": "1.0.0",
   "description": "Description de votre projet",
-  "main": "app.js",
+  "main": "App.js",
   "scripts": {
     "start": "node app.js"
   },
