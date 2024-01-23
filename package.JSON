@@ -1,0 +1,17 @@
+{
+  "name": "nom-de-votre-projet",
+  "version": "1.0.0",
+  "description": "Description de votre projet",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Votre Nom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+    // Ajoutez d'autres dépendances nécessaires ici
+  }
+}
