@@ -5,7 +5,7 @@
   "main": "App.js",
   "scripts": {
     "start": "node App.js"
-    // Ajoutez d'autres scripts personnalisés au besoin
+
   },
   "keywords": [],
   "author": "Votre Nom",
@@ -13,12 +13,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.11.18"
-    // Ajoutez d'autres dépendances au besoin
+
   },
   "engines": {
     "node": "14.x"
   },
   "devDependencies": {
-    // Ajoutez des dépendances spécifiques au développement au besoin
+
   }
 }
