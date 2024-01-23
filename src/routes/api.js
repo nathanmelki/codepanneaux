@@ -1,26 +1,21 @@
+// src/routes/api.js
 const express = require('express');
 const router = express.Router();
+const AdvertisementController = require('../controllers/AdvertisementController');
+const AuctionController = require('../controllers/AuctionController');
 
-const panelController = require('./controllers/PanelController'); // Assurez-vous d'ajuster le chemin selon votre structure de projet
-const advertisementController = require('./controllers/AdvertisementController'); // Ajustez le chemin en conséquence
-const auctionController = require('./controllers/AuctionController'); // Ajustez le chemin en conséquence
+// Routes for Advertisement
+router.post('/advertisements', AdvertisementController.createAdvertisement);
+router.get('/advertisements', AdvertisementController.getAllAdvertisements);
+router.get('/advertisements/:id', AdvertisementController.getAdvertisementById);
+router.put('/advertisements/:id', AdvertisementController.updateAdvertisement);
+router.delete('/advertisements/:id', AdvertisementController.deleteAdvertisement);
 
-// Routes pour les panneaux virtuels
-router.get('/panels', panelController.getAllPanels);
-router.post('/panels', panelController.createPanel);
-router.put('/panels/:id', panelController.updatePanel);
-router.delete('/panels/:id', panelController.deletePanel);
-
-// Routes pour les publicités
-router.get('/advertisements', advertisementController.getAllAdvertisements);
-router.post('/advertisements', advertisementController.createAdvertisement);
-router.put('/advertisements/:id', advertisementController.updateAdvertisement);
-router.delete('/advertisements/:id', advertisementController.deleteAdvertisement);
-
-// Routes pour les enchères
-router.get('/auctions', auctionController.getAllAuctions);
-router.post('/auctions', auctionController.createAuction);
-router.put('/auctions/:id', auctionController.updateAuction);
-router.delete('/auctions/:id', auctionController.deleteAuction);
+// Routes for Auction
+router.post('/auctions', AuctionController.createAuction);
+router.get('/auctions', AuctionController.getAllAuctions);
+router.get('/auctions/:id', AuctionController.getAuctionById);
+router.put('/auctions/:id', AuctionController.updateAuction);
+router.delete('/auctions/:id', AuctionController.deleteAuction);
 
 module.exports = router;
