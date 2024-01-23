@@ -1,28 +1,11 @@
-const { Pool } = require('pg');
+// src/db.js
+const mongoose = require('mongoose');
+const { dbURI } = require('./config');
 
-// Configurations de la base de données
-const dbConfig = {
-  user: 'votre_utilisateur',
-  host: 'votre_host',
-  database: 'votre_base_de_donnees',
-  password: 'votre_mot_de_passe',
-  port: 'votre_port',
-};
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Créez une nouvelle instance de Pool avec les configurations
-const pool = new Pool(dbConfig);
+const db = mongoose.connection;
 
-// Fonction pour exécuter des requêtes SQL
-const query = async (text, params) => {
-  const start = Date.now();
-  const res = await pool.query(text, params);
-  const duration = Date.now() - start;
-  console.log('Exécuté la requête', { text, duration, rows: res.rowCount });
-  return res;
-};
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// Exportez la pool et la fonction de requête pour les utiliser ailleurs dans votre application
-module.exports = {
-  pool,
-  query,
-};
+module.exports = db;
