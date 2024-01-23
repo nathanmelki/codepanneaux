@@ -1,22 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MapPanel from './src/components/MapPanel';
-import AdvertisementForm from './src/components/AdvertisementForm';
-import AuctionComponent from './src/components/AuctionComponent';
+const express = require('express');
+const path = require('path');
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/map-panel" component={MapPanel} />
-          <Route path="/advertisement-form" component={AdvertisementForm} />
-          <Route path="/auction" component={AuctionComponent} />
-          {/* Ajoutez d'autres routes au besoin */}
-        </Switch>
-      </div>
-    </Router>
-  );
-};
+const app = express();
+const port = process.env.PORT || 3000;
 
-export default App;
+// Servir les fichiers statiques depuis le dossier 'build'
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Gérer toutes les routes et renvoyer 'index.html'
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Le serveur écoute sur le port ${port}`);
+});
