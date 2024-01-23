@@ -1,27 +1,21 @@
-const { Model } = require('objection');
-const knex = require('../db'); // Assurez-vous d'ajuster le chemin selon votre structure de projet
+// src/models/Advertisement.js
+const mongoose = require('mongoose');
 
-Model.knex(knex);
+const advertisementSchema = new mongoose.Schema({
+  videoUrl: {
+    type: String,
+    required: true,
+  },
+  logoUrl: {
+    type: String,
+    required: true,
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-class Advertisement extends Model {
-  static get tableName() {
-    return 'advertisements'; // Assurez-vous d'avoir une table "advertisements" dans votre base de données
-  }
-
-  static get jsonSchema() {
-    return {
-      type: 'object',
-      required: ['title', 'description', 'timestamp'],
-      properties: {
-        id: { type: 'integer' },
-        title: { type: 'string', minLength: 1, maxLength: 255 },
-        description: { type: 'string', minLength: 1, maxLength: 1000 },
-        timestamp: { type: 'timestamp' }, // Assurez-vous d'ajuster le type de données selon votre base de données
-      },
-    };
-  }
-}
+const Advertisement = mongoose.model('Advertisement', advertisementSchema);
 
 module.exports = Advertisement;
-//npm install objection knex
-//Assurez-vous également d'ajuster la configuration de la base de données dans le fichier //knexfile.js selon vos paramètres.
