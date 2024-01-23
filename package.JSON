@@ -2,9 +2,9 @@
   "name": "codepanneaux",
   "version": "1.0.0",
   "description": "Description de votre projet",
-  "main": "App.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node App.js"
+    "start": "node app.js"
 
   },
   "keywords": [],
