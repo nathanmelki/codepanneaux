@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MapPanel from './MapPanel';
-import AdvertisementForm from './AdvertisementForm';
-import AuctionComponent from './AuctionComponent';
+import MapPanel from './src/components/MapPanel';
+import AdvertisementForm from './src/components/AdvertisementForm';
+import AuctionComponent from './src/components/AuctionComponent';
 
 const App = () => {
   return (
